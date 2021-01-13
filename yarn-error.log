@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\mel80\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add redux-mock-store1.2.3
+  C:\Program Files\nodejs\node.exe C:\Users\mel80\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add history4.10.1
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\mel80\AppData\Local\Microsoft\WindowsApps;;C:\Users\mel80\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mel80\AppData\Roaming\npm;C:\Program Files\heroku\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/redux-mock-store1.2.3: Not found
+  Error: https://registry.yarnpkg.com/history4.10.1: Not found
       at Request.params.callback [as _callback] (C:\Users\mel80\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66988:18)
       at Request.self.callback (C:\Users\mel80\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140662:22)
       at Request.emit (events.js:314:20)
@@ -37,7 +37,7 @@ npm manifest:
       "build:dev": "webpack",
       "build:prod": "webpack -p --env production",
       "dev-server": "webpack-dev-server",
-      "test": "jest --config=jest.config.json",
+      "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
       "start": "node server/server.js",
       "heroku-postbuild": "yarn run build:prod"
     },
@@ -66,6 +66,7 @@ npm manifest:
       "react-redux": "5.0.5",
       "react-router-dom": "5.2.0",
       "redux": "3.7.2",
+      "redux-mock-store": "1.2.3",
       "redux-thunk": "2.2.0",
       "sass-loader": "6.0.6",
       "style-loader": "0.18.2",
@@ -74,6 +75,8 @@ npm manifest:
       "webpack": "3.1.0"
     },
     "devDependencies": {
+      "cross-env": "5.0.5",
+      "dotenv": "^8.2.0",
       "enzyme": "^3.11.0",
       "enzyme-adapter-react-16": "^1.15.5",
       "enzyme-to-json": "^3.6.1",
@@ -2692,12 +2695,29 @@ Lockfile:
       loose-envify "^1.3.1"
       object-assign "^4.1.1"
   
+  cross-env@5.0.5:
+    version "5.0.5"
+    resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.0.5.tgz#4383d364d9660873dd185b398af3bfef5efffef3"
+    integrity sha1-Q4PTZNlmCHPdGFs5ivO/717//vM=
+    dependencies:
+      cross-spawn "^5.1.0"
+      is-windows "^1.0.0"
+  
   cross-spawn@^3.0.0:
     version "3.0.1"
     resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-3.0.1.tgz#1256037ecb9f0c5f79e3d6ef135e30770184b982"
     integrity sha1-ElYDfsufDF9549bvE14wdwGEuYI=
     dependencies:
       lru-cache "^4.0.1"
+      which "^1.2.9"
+  
+  cross-spawn@^5.1.0:
+    version "5.1.0"
+    resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
+    integrity sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk=
+    dependencies:
+      lru-cache "^4.0.1"
+      shebang-command "^1.2.0"
       which "^1.2.9"
   
   cross-spawn@^6.0.0:
@@ -3137,6 +3157,11 @@ Lockfile:
     dependencies:
       dom-serializer "0"
       domelementtype "1"
+  
+  dotenv@^8.2.0:
+    version "8.2.0"
+    resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+    integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
   
   ecc-jsbn@~0.1.1:
     version "0.1.2"
@@ -4966,7 +4991,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
     integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
   
-  is-windows@^1.0.2:
+  is-windows@^1.0.0, is-windows@^1.0.2:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/is-windows/-/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
     integrity sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==
@@ -7604,6 +7629,11 @@ Lockfile:
     integrity sha512-Hl/tuV2VDgWgCSEeWMLwxLZqX7OK59eU1guxXsRKTAyeYimivsKdtcV4fu3r710tpG5GmDKDhQ0HSZLExnNmyQ==
     dependencies:
       balanced-match "^1.0.0"
+  
+  redux-mock-store@1.2.3:
+    version "1.2.3"
+    resolved "https://registry.yarnpkg.com/redux-mock-store/-/redux-mock-store-1.2.3.tgz#1b3ad299da91cb41ba30d68e3b6f024475fb9e1b"
+    integrity sha1-GzrSmdqRy0G6MNaOO28CRHX7nhs=
   
   redux-thunk@2.2.0:
     version "2.2.0"

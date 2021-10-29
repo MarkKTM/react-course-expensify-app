@@ -24,3 +24,8 @@ button:disabled {
 .is-active {
   font-weight: bold;
 }
+
+.alert-heading {
+  font-weight: bold;
+  color: $text-danger;
+}
